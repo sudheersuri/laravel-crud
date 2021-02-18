@@ -9,7 +9,7 @@ class ActivitiesController extends Controller
 {
     public function index(Request $request)
     {
-        $request->validate(["activityname"=>'required|min:4']);
+        $request->validate(["activityname"=>'required|min:3|unique:activities']);
         $activityname = request('activityname');
         $timespent = request('timespent');
         $activitiesobj=new Activities(); 

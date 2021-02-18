@@ -7,8 +7,9 @@ use App\Models\Activities;
 
 class ActivitiesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->validate(["activityname"=>'required|min:4']);
         $activityname = request('activityname');
         $timespent = request('timespent');
         $activitiesobj=new Activities(); 

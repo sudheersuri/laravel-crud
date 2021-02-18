@@ -11,7 +11,10 @@
                     <form class="form" action="{{route('add')}}" method="POST">
                             @csrf
                             Activitiy Name:<br>
-                            <input type="text" name="activityname" class="form-control" required/><br>
+                            <input type="text" name="activityname" class="form-control" required/>
+                            @error('activityname')
+                            <span class="text-danger">{{$message}}</span><br>
+                            @enderror
                             Time Spent: <br>
                             <input type="number" pattern="/d*" class="form-control" name="timespent" required/>
                             <br><br>
